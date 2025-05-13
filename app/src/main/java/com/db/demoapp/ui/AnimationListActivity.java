@@ -16,12 +16,13 @@ import com.db.demoapp.R;
 
 public class AnimationListActivity extends AppCompatActivity {
 
-    String[] items = {"Micro Interaction", "Skeleton UI", "Infinite Scroll", "Modal UI"};
+    String[] animationItemsTitle = {"Micro Interaction", "Skeleton UI", "Infinite Scroll", "Modal UI"};
+    String[] animationItemsSubTitle = {"사용자 행동에 반응하는 작고 스마트한 인터랙션", "Skeleton UI", "Infinite Scroll", "Modal UI"};
     int[] icons = {
             R.drawable.ic_micro_interaction,
             R.drawable.ic_skeleton_ui,
-            R.drawable.ic_infinite_scroll,
-            R.drawable.ic_modal_ui
+            R.drawable.ic_micro_interaction,
+            R.drawable.ic_skeleton_ui
     };
 
     @Override
@@ -42,12 +43,12 @@ public class AnimationListActivity extends AppCompatActivity {
     class AnimationAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            return items.length;
+            return animationItemsTitle.length;
         }
 
         @Override
         public Object getItem(int position) {
-            return items[position];
+            return animationItemsTitle[position];
         }
 
         @Override
@@ -61,10 +62,12 @@ public class AnimationListActivity extends AppCompatActivity {
                 convertView = LayoutInflater.from(AnimationListActivity.this).inflate(R.layout.item_animation, parent, false);
             }
             ImageView icon = convertView.findViewById(R.id.itemIcon);
-            TextView title = convertView.findViewById(R.id.itemText);
+            TextView title = convertView.findViewById(R.id.itemTitle);
+            TextView subtitle = convertView.findViewById(R.id.itemSubTitle);
 
             icon.setImageResource(icons[position]);
-            title.setText(items[position]);
+            title.setText(animationItemsTitle[position]);
+            subtitle.setText(animationItemsSubTitle[position]);
             return convertView;
         }
     }
