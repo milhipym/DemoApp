@@ -1,0 +1,65 @@
+/* 🔧 기본 바탕 설정 */
+.hljs {
+  background: #121212;      /* 다크 그레이 */
+  color: #f8f8f2;           /* 기본 폰트색 (아이보리 화이트) */
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 🟡 키워드, 예약어 */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: #ff79c6;           /* 핑크: if, else, return, class 등 */
+  font-weight: bold;
+}
+
+/* 클래스명, 함수명 */
+.hljs-title,
+.hljs-type {
+  color: #8be9fd;           /* 하늘색 */
+}
+
+/* 🟠 선언, 변수, 속성 */
+.hljs-variable,
+.hljs-attribute,
+.hljs-property,
+.hljs-built_in {
+  color: #f1fa8c;           /* 노랑 */
+}
+
+/* 🟢 문자열 */
+.hljs-string,
+.hljs-symbol,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #50fa7b;           /* 연두 */
+}
+
+/*  숫자, 상수 */
+.hljs-number {
+  color: #bd93f9;           /* 연보라 */
+}
+
+/*  주석 */
+.hljs-comment {
+  color: #6272a4;           /* 회보라 */
+  font-style: italic;
+}
+
+/* 어노테이션, 메타 정보 */
+.hljs-meta,
+.hljs-annotation {
+  color: #ffb86c;           /* 주황 */
+}
+
+/* 오류, 강조 */
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: bold;
+}

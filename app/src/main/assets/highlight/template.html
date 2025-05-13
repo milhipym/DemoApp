@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles/dark-custom.css">
+  <script src="highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f8f8f2;
+      padding: 16px;
+      margin: 0;
+    }
+
+    pre {
+      background: transparent !important;
+      padding: 0;
+      margin: 0;
+      border: none;
+    }
+
+    code {
+      background: transparent !important;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+      /* === 하이라이트 커스텀 색상 === */
+
+      /* 클래스 타입, ImageView 등 */
+      .hljs-type, .hljs-class, .hljs-title, .hljs-built_in {
+        color: #ffcc66;
+      }
+
+      /* 키워드 - public, protected, void, class, new 등 */
+      .hljs-keyword {
+        color: #cc99cd;
+        font-weight: bold;
+      }
+
+      /* 주석 */
+      .hljs-comment {
+        color: #999988;
+        font-style: italic;
+      }
+
+      /* 문자열 */
+      .hljs-string {
+        color: #a5e844;
+      }
+
+      /* 숫자, 상수 */
+      .hljs-number, .hljs-literal {
+        color: #ae81ff;
+      }
+
+      /* 메서드 호출 (예: startAnimation) */
+      .hljs-title.function_, .hljs-function .hljs-title {
+        color: #f39c12;
+      }
+
+      /* 어노테이션 (예: @Override) */
+      .hljs-meta {
+        color: #f4bf75;
+      }
+  </style>
+</head>
+<body>
+<pre><code class="language-java">{{CODE_HERE}}</code></pre>
+</body>
+</html>

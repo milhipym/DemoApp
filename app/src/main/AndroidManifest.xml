@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.db.demoapp">
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DemoApp"
+        tools:targetApi="31">
+
+        <!-- 런처 액티비티 -->
+        <activity android:name="com.db.demoapp.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 예제 목록 액티비티 -->
+        <activity android:name="com.db.demoapp.ui.AnimationListActivity" />
+
+        <!-- 애니메이션 시연 액티비티 -->
+        <activity android:name="com.db.demoapp.ui.SlideDownActivity" />
++
+        <!-- 코드 보기 액티비티 -->
+        <activity android:name="com.db.demoapp.code.SlideDownCodeActivity" />
+        <!-- 코드 보기 액티비티 하이라이트 -->
+        <activity android:name="com.db.demoapp.code.CodeViewActivity" />
+        <!-- 코드 보기 액티비티 웹 -->
+        <activity android:name="com.db.demoapp.code.DynamicTabbedCodeViewActivity" />
+
+    </application>
+
+</manifest>
