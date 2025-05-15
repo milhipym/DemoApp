@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -70,14 +71,15 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
                 super.onScrolled(rv, dx, dy);
                 LinearLayoutManager lm = (LinearLayoutManager) rv.getLayoutManager();
                 if (!isLoading && lm.findLastCompletelyVisibleItemPosition() == items.size() - 1) {
+                    Toast.makeText(getApplicationContext(), "아이템 조회중...", Toast.LENGTH_SHORT).show();
                     isLoading = true;
                     new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             int start = items.size() + 1;
                             for (int i = 0; i < 10; i++) {
-                            items.add("아이템 " + (start + i));
-                        }
+                                items.add("아이템 " + (start + i));
+                            }
                             rvAdapter.notifyDataSetChanged();
                             isLoading = false;
                         }
