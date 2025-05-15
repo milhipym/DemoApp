@@ -2,6 +2,7 @@ package com.db.demoapp.code;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebView;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +29,7 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
 
         featureName = getIntent().getStringExtra("feature");
         if (featureName == null) featureName = "blink";
+        Log.e("CHOI", "onCreate: featureName>>"+featureName );
 
         tabLayout.addTab(tabLayout.newTab().setText("Java"));
         tabLayout.addTab(tabLayout.newTab().setText("xml"));
@@ -49,10 +51,11 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
     }
 
     private void loadCode(String type) {
-        String path = featureName + "/" + type + "/" + featureName + (type.equals("java") ? ".java" : ".xml");
+        String path = "slide_down" + "/" + type + "/" + featureName + (type.equals("java") ? ".java" : ".xml");
         String language = type.equals("java") ? "java" : "xml";
 
         try {
+            Log.e("CHOI", "loadCode: path>>"+path );
             BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(path)));
             StringBuilder code = new StringBuilder();
             String line;

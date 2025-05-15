@@ -2,6 +2,7 @@ package com.db.demoapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.db.demoapp.R;
+
 
 public class AnimationListActivity extends AppCompatActivity {
 
@@ -34,9 +36,32 @@ public class AnimationListActivity extends AppCompatActivity {
         listView.setAdapter(new AnimationAdapter());
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
+            Log.e("CHOI", "onCreate: parent>>"+parent+"\nview>>"+view+"\nposition>>"+position+"\nid>>"+id);
             // SlideDownActivity만 예시로 연결
-            Intent intent = new Intent(this, SlideDownActivity.class);
-            startActivity(intent);
+            Intent intent = null;
+            switch (position) {
+
+                case 0://Micro Interaction
+                    intent = new Intent(this, SlideDownActivity.class);
+                    startActivity(intent);
+                    break;
+                case 1://Skeleton UI
+                    intent = new Intent(this, SkeletonDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                case 2://Infinite Scroll
+                    intent = new Intent(this, InfiniteScrollDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                case 3://Modal UI
+                    intent = new Intent(this, ModalDemoActivity.class);
+                    startActivity(intent);
+                    break;
+                default:
+                    break;
+            }
+
+
         });
     }
 

@@ -21,6 +21,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.db.demoapp.ui.ModalDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.db.demoapp.ui.InfiniteScrollDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.db.demoapp.ui.SkeletonDemoActivity"
+            android:exported="false" />
+
         <!-- 예제 목록 액티비티 -->
         <activity android:name="com.db.demoapp.ui.AnimationListActivity" />
 
