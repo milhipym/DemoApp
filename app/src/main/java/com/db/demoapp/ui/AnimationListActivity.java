@@ -17,7 +17,10 @@ import com.db.demoapp.R;
 public class AnimationListActivity extends AppCompatActivity {
 
     String[] animationItemsTitle = {"Micro Interaction", "Skeleton UI", "Infinite Scroll", "Modal UI"};
-    String[] animationItemsSubTitle = {"사용자 행동에 반응하는 작고 스마트한 인터랙션", "Skeleton UI", "Infinite Scroll", "Modal UI"};
+    String[] animationItemsSubTitle = {"사용자 액션에 대한 반응형 애니메이션",
+                                        "콘텐츠 로딩시간의 체감상 감소를 위한 UI",
+                                        "한 페이지에서 많은 컨텐츠를 담기 위한 UI",
+                                        "사용자에게 효과적으로 정보 선택을 제공하는 UI"};
     int[] icons = {
             R.drawable.ic_micro_interaction,
             R.drawable.ic_skeleton_ui,
@@ -34,7 +37,7 @@ public class AnimationListActivity extends AppCompatActivity {
         listView.setAdapter(new AnimationAdapter());
 
         listView.setOnItemClickListener((parent, view, position, id) -> {
-            // SlideDownActivity만 예시로 연결
+
             Intent intent = new Intent(this, SlideDownActivity.class);
             startActivity(intent);
         });
