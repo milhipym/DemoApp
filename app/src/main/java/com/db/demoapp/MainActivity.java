@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.db.demoapp.ui.modal.ModalUIActivity;
 import com.db.demoapp.ui.PagingUXListActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         // 모달UI
         Button btnAnim = findViewById(R.id.btnAnimation);
         btnAnim.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, ModalUIActivity.class);
             startActivity(intent);
         });
         //로딩UI

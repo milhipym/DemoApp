@@ -150,7 +150,7 @@
                 android:textColor="#ffffff"
                 app:layout_constraintEnd_toEndOf="@+id/tv_3"
                 app:layout_constraintStart_toStartOf="@+id/tv_3"
-                app:layout_constraintTop_toBottomOf="@+id/btnAnimation3" />
+                app:layout_constraintTop_toBottomOf="@id/btnAnimation5" />
             <!-- 3단 -->
             <TextView
                 android:id="@+id/tv_5"

@@ -7,4 +7,12 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF3B30</color>
+    <color name="gray">#888888</color>
+
+    <color name="colorPrimary">#3F51B5</color>         <!-- 진한 파랑 (머티리얼 기본) -->
+    <color name="colorPrimaryDark">#303F9F</color>     <!-- 더 진한 파랑 -->
+    <color name="colorAccent">#FF4081</color>          <!-- 포인트 컬러 (핑크) -->
+    <!-- 필요하다면 추가 색상 정의 -->
+    <color name="green">#00C853</color>
 </resources>
