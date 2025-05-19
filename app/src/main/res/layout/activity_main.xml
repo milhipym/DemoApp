@@ -1,19 +1,222 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E5F9F3"
     android:orientation="vertical"
-    android:layout_marginTop="30dp"
+    android:layout_marginBottom="50dp"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnAnimation"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Animation Source Codes"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        />
+        android:layout_height="match_parent"
+        android:background="#E5F9F3"
+        android:overScrollMode="never"
+        android:layout_marginTop="250dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".ScrollingActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:animateLayoutChanges="true">
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="🧱 기본 구성 요소 (Foundation UI)"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="앱의 기본 동작과 인터페이스를 이해하고, 필수 UI 컴포넌트를 다루는 영역"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnAnimation"
+                app:layout_constraintEnd_toEndOf="@+id/tv_1"
+                app:layout_constraintStart_toStartOf="@+id/tv_1"
+                app:layout_constraintTop_toBottomOf="@+id/tv_1" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_button_left_rounded"
+                android:elevation="25dp"
+                android:text="모달 UI (Modal UI)"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/btnAnimation1"
+                app:layout_constraintStart_toStartOf="@+id/tv_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_2" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation1"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_button_right_rounded"
+                android:elevation="25dp"
+                android:text="로딩 UI (Loading UI)"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_1"
+                app:layout_constraintStart_toEndOf="@+id/btnAnimation"
+                app:layout_constraintTop_toTopOf="@+id/btnAnimation" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation2"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_button_all_rounded"
+                android:elevation="25dp"
+                android:text="페이징 UX (Paging UX)"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_1"
+                app:layout_constraintStart_toStartOf="@+id/tv_1"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnimation" />
+            <!-- 2단 -->
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="5dp"
+                android:text="✨ 인터랙션/표현 강화 (Interactive UX)"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_4"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnimation2" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="사용자와의 상호작용, 시각적 효과 및 몰입도를 다루는 기능"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnAnimation3"
+                app:layout_constraintEnd_toEndOf="@+id/tv_3"
+                app:layout_constraintStart_toStartOf="@+id/tv_3"
+                app:layout_constraintTop_toBottomOf="@+id/tv_3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation3"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_button_left_rounded"
+                android:elevation="25dp"
+                android:text="마이크로 인터랙션 \n(Micro Interactions)"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/btnAnimation4"
+                app:layout_constraintStart_toStartOf="@+id/tv_3"
+                app:layout_constraintTop_toBottomOf="@id/tv_4" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation4"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_button_right_rounded"
+                android:elevation="25dp"
+                android:text="3D UI / Motion Design"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_3"
+                app:layout_constraintStart_toEndOf="@+id/btnAnimation3"
+                app:layout_constraintTop_toTopOf="@+id/btnAnimation3" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation5"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_button_all_rounded"
+                android:elevation="25dp"
+                android:text="🎡  Fun_Lab"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_3"
+                app:layout_constraintStart_toStartOf="@+id/tv_3"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnimation3" />
+            <!-- 3단 -->
+            <TextView
+                android:id="@+id/tv_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="5dp"
+                android:text="🧑‍💻  Core Android Skills"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnimation5" />
+
+            <TextView
+                android:id="@+id/tv_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="모던 안드로이드 개발의 핵심 기술 역량"
+                android:textSize="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnAnimation6"
+                app:layout_constraintEnd_toEndOf="@+id/tv_5"
+                app:layout_constraintStart_toStartOf="@+id/tv_5"
+                app:layout_constraintTop_toBottomOf="@+id/tv_5" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation6"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_button_left_rounded"
+                android:elevation="25dp"
+                android:text="🧪 API Showcase"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toStartOf="@+id/btnAnimation7"
+                app:layout_constraintStart_toStartOf="@+id/tv_5"
+                app:layout_constraintTop_toBottomOf="@id/tv_6" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation7"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_button_right_rounded"
+                android:elevation="25dp"
+                android:text="⚛️ Compose (Android)"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_5"
+                app:layout_constraintStart_toEndOf="@+id/btnAnimation6"
+                app:layout_constraintTop_toTopOf="@+id/btnAnimation6" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation8"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bg_button_all_rounded"
+                android:elevation="25dp"
+                android:text="ETC"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_5"
+                app:layout_constraintStart_toStartOf="@+id/tv_5"
+                app:layout_constraintTop_toBottomOf="@+id/btnAnimation6"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

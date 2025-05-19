@@ -1,21 +1,28 @@
+
 package com.db.demoapp.code;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.webkit.WebView;
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
 import com.db.demoapp.R;
 import com.google.android.material.tabs.TabLayout;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
 
     WebView webView;
     TabLayout tabLayout;
     String featureName;
+
+    HashMap<String, ArrayList<String>> folderFileMap = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,37 +32,78 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
         webView = findViewById(R.id.webCodeView);
         webView.setBackgroundColor(Color.TRANSPARENT);
         webView.getSettings().setJavaScriptEnabled(true);
-        tabLayout = findViewById(R.id.tabLayout);
 
+        tabLayout = findViewById(R.id.tabLayout);
         featureName = getIntent().getStringExtra("feature");
         if (featureName == null) featureName = "blink";
-        Log.e("CHOI", "onCreate: featureName>>"+featureName );
 
-        tabLayout.addTab(tabLayout.newTab().setText("Java"));
-        tabLayout.addTab(tabLayout.newTab().setText("xml"));
-        tabLayout.addTab(tabLayout.newTab().setText("animation"));
+        try {
+            String[] folders = getAssets().list(featureName);
+            if (folders != null) {
+                for (String folder : folders) {
+                    String folderPath = featureName + "/" + folder;
+                    String[] files = getAssets().list(folderPath);
+                    if (files != null) {
+                        ArrayList<String> fileList = new ArrayList<>();
+                        for (String file : files) {
+                            fileList.add(file);
 
-        loadCode("java");
+                            // 🔽 커스텀 탭 레이아웃 설정
+                            TabLayout.Tab tab = tabLayout.newTab();
+                            View customTabView = LayoutInflater.from(this)
+                                    .inflate(R.layout.tab_custom_view, null);
+                            TextView title = customTabView.findViewById(R.id.tabTitle);
+                            TextView subtitle = customTabView.findViewById(R.id.tabSubtitle);
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override public void onTabSelected(TabLayout.Tab tab) {
-                switch (tab.getPosition()) {
-                    case 0: loadCode("java"); break;
-                    case 1: loadCode("xml"); break;
-                    case 2: loadCode("animation"); break;
+                            title.setText(folder.toUpperCase());
+                            subtitle.setText(file);
+
+                            tab.setCustomView(customTabView);
+                            tabLayout.addTab(tab);
+                        }
+                        folderFileMap.put(folder, fileList);
+                    }
                 }
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (tabLayout.getTabCount() > 0) {
+            TabLayout.Tab firstTab = tabLayout.getTabAt(0);
+            if (firstTab != null && firstTab.getCustomView() != null) {
+                TextView subtitle = firstTab.getCustomView().findViewById(R.id.tabSubtitle);
+                loadCodeFromTab(firstTab.getText() != null ? firstTab.getText().toString()
+                        : subtitle.getText().toString());  // 초기 탭 로딩
+            }
+        }
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                if (tab.getCustomView() != null) {
+                    TextView subtitle = tab.getCustomView().findViewById(R.id.tabSubtitle);
+                    String folder = ((TextView) tab.getCustomView().findViewById(R.id.tabTitle)).getText().toString().toLowerCase();
+                    String filename = subtitle.getText().toString();
+                    loadCodeFromTab(folder + "/" + filename);
+                }
+            }
+
             @Override public void onTabUnselected(TabLayout.Tab tab) {}
             @Override public void onTabReselected(TabLayout.Tab tab) {}
         });
     }
 
-    private void loadCode(String type) {
-        String path = "slide_down" + "/" + type + "/" + featureName + (type.equals("java") ? ".java" : ".xml");
-        String language = type.equals("java") ? "java" : "xml";
 
+    private void loadCodeFromTab(String tabText) {
         try {
-            Log.e("CHOI", "loadCode: path>>"+path );
+            String[] parts = tabText.split("/");
+            String folder = parts[0];
+            String fileName = parts[1];
+            String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
+            String language = ext.equals("java") ? "java" : ext.equals("kt") ? "kotlin" : "xml";
+
+            String path = featureName + "/" + folder + "/" + fileName;
             BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open(path)));
             StringBuilder code = new StringBuilder();
             String line;
@@ -65,28 +113,25 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
             reader.close();
 
             String template = loadTemplate();
-            String html = template
-                .replace("{{LANGUAGE}}", "language-" + language)
-                .replace("{{CODE_HERE}}", code.toString());
-
+            String html = template.replace("{{LANGUAGE}}", "language-" + language).replace("{{CODE_HERE}}", code.toString());
             webView.loadDataWithBaseURL("file:///android_asset/highlight/", html, "text/html", "utf-8", null);
         } catch (Exception e) {
-            webView.loadData("<html><body>Code not found: " + path + "</body></html>", "text/html", "utf-8");
+            webView.loadData("<html><body>Code not found for tab: " + tabText + "</body></html>", "text/html", "utf-8");
         }
     }
 
     private String loadTemplate() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(getAssets().open("highlight/template.html")));
-            StringBuilder builder = new StringBuilder();
+            StringBuilder html = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
-                builder.append(line).append("\n");
+                html.append(line);
             }
             reader.close();
-            return builder.toString();
+            return html.toString();
         } catch (Exception e) {
-            return "<html><body>Error loading template: " + e.getMessage() + "</body></html>";
+            return "<html><body>Error loading template</body></html>";
         }
     }
 }

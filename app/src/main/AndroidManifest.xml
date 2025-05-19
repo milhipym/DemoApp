@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoApp"
-        tools:targetApi="31">
+        tools:targetApi="33">
 
         <!-- 런처 액티비티 -->
         <activity android:name="com.db.demoapp.MainActivity"
@@ -34,14 +34,26 @@
         <!-- 예제 목록 액티비티 -->
         <activity android:name="com.db.demoapp.ui.AnimationListActivity" />
 
+        <activity android:name="com.db.demoapp.ui.ModalUiListActivity" />
+        <activity android:name="com.db.demoapp.ui.LoadingUIActivityList" />
+        <activity android:name="com.db.demoapp.ui.PagingUXListActivity" />
+
+        <activity android:name="com.db.demoapp.ui.MicroInteractionsActivityList" />
+        <activity android:name="com.db.demoapp.ui.ThreeDMotionUiActivityList" />
+        <activity android:name="com.db.demoapp.ui.FunLabActivityList" />
+
+
         <!-- 애니메이션 시연 액티비티 -->
-        <activity android:name="com.db.demoapp.ui.SlideDownActivity" />
+        <activity android:name="com.db.demoapp.ui.microitems.SlideDownActivity" />
+        <activity android:name="com.db.demoapp.ui.pagingitems.PagingAppbarTabLayoutActivity" />
+
+        <activity android:name="com.db.demoapp.ui.pagingitems.PagingBottomActivity" />
 +
-        <!-- 코드 보기 액티비티 -->
+        <!-- 코드 보기 액티비티_초기버전 -->
         <activity android:name="com.db.demoapp.code.SlideDownCodeActivity" />
         <!-- 코드 보기 액티비티 하이라이트 -->
         <activity android:name="com.db.demoapp.code.CodeViewActivity" />
-        <!-- 코드 보기 액티비티 웹 -->
+        <!-- 코드 보기 액티비티 웹뷰 -->
         <activity android:name="com.db.demoapp.code.DynamicTabbedCodeViewActivity" />
 
     </application>

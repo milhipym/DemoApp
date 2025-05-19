@@ -1,4 +1,4 @@
-package com.db.demoapp.ui;
+package com.db.demoapp.ui.microitems;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,10 +30,10 @@ public class SlideDownActivity extends AppCompatActivity {
         });
 
         ImageButton fab = findViewById(R.id.fabCode);
-        //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
+
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "slide_down"); // ✅ 핵심 포인트
+            intent.putExtra("feature", "slide_down"); //
             startActivity(intent);
         });
 
