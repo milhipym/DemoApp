@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.db.demoapp.ui.etc.EtcActivity;
 import com.db.demoapp.ui.modal.ModalUIActivity;
 import com.db.demoapp.ui.PagingUXListActivity;
 
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         //ETC
         Button btnAnim8 = findViewById(R.id.btnAnimation8);
         btnAnim8.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, EtcActivity.class);
             startActivity(intent);
         });
 

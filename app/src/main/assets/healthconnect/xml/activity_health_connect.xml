@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FAFC">
+
+    <!-- Lottie 애니메이션 (상단) -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="36dp"
+        app:lottie_rawRes="@raw/walk_lottie"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 오늘의 걸음 수 카드 (중앙) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTodaySteps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
+        app:layout_constraintBottom_toTopOf="@id/buttonHealthConnect"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="오늘의 걸음 수"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222"/>
+
+            <TextView
+                android:id="@+id/textViewTodaySteps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:textColor="#1DB7B0"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:autoSizeTextType="uniform"
+                app:autoSizeMinTextSize="18sp"
+                app:autoSizeMaxTextSize="40sp"
+                app:autoSizeStepGranularity="2sp"/>
+
+
+            <!-- 통계 데이터 행 -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/textViewYesterdaySteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:text="어제: 0"
+                        android:textSize="14sp"
+                        android:textColor="#888"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/textViewSevenDaysSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:text="7일: 0"
+                        android:textSize="14sp"
+                        android:textColor="#888"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="4dp">
+
+                    <TextView
+                        android:id="@+id/textViewThirtyDaysSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:text="30일: 0"
+                        android:textSize="14sp"
+                        android:textColor="#888"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:id="@+id/textViewNinetyDaysSteps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="viewStart"
+                        android:text="90일: 0"
+                        android:textSize="14sp"
+                        android:textColor="#888"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 하단 버튼 -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonHealthConnect"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:text="걸음 수 연동 시작"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        app:cornerRadius="28dp"
+        android:backgroundTint="#1DB7B0"
+        android:textColor="@android:color/white"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="36dp"
+        app:iconGravity="textStart"
+        app:iconPadding="8dp"
+        app:iconTint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

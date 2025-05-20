@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.db.demoapp">
+    package="com.db.demoapp" >
+    <!-- queries -->
+    <queries>
+        <package android:name="com.google.android.apps.healthdata" />
+    </queries>
+
+    <uses-permission android:name="android.health.connect.action.HEALTH_CONNECT_SETTINGS"/>
+    <uses-permission android:name="android.permission.health.READ_STEPS"/>
+    <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_HISTORY" />
+    <uses-permission android:name="android.permission.health.WRITE_STEPS"/>
+    <uses-permission android:name="android.permission.health.READ_TOTAL_CALORIES_BURNED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +21,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoApp"
-        tools:targetApi="33">
+        tools:targetApi="33" >
+        <activity
+            android:name=".ui.etc.EtcActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.etc.healthconnect.test.HealthConnectTestActivity"
+            android:exported="false" >
+            <!--
+                The app needs to handle this intent and display an appropriate privacy policy
+                explaining how the user's data will be used and handled.
+
+                This intent is sent to the app when the user clicks on the "privacy policy" link
+                in the Health Connect permissions dialog.
+            -->
+            <intent-filter>
+                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
+            </intent-filter>
+
+            <!-- Permission handling for Android 14 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE"/>
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.modal.test.ModalDialogTestActivity"
             android:exported="false" />
@@ -19,7 +53,7 @@
             android:exported="false" /> <!-- 런처 액티비티 -->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,7 +70,6 @@
             android:name=".ui.SkeletonDemoActivity"
             android:exported="false" /> <!-- 예제 목록 액티비티 -->
         <activity android:name=".ui.AnimationListActivity" />
-        <activity android:name=".ui.ModalUiListActivity" />
         <activity android:name=".ui.LoadingUIActivityList" />
         <activity android:name=".ui.PagingUXListActivity" />
         <activity android:name=".ui.MicroInteractionsActivityList" />

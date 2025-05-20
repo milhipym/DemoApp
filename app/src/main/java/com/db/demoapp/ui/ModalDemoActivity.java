@@ -1,7 +1,5 @@
 package com.db.demoapp.ui;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -67,7 +65,7 @@ public class ModalDemoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 BottomSheetDialog dialog = new BottomSheetDialog(ModalDemoActivity.this);
                 View view = LayoutInflater.from(ModalDemoActivity.this)
-                    .inflate(R.layout.bottom_sheet, null, false);
+                    .inflate(R.layout.modal_custom_bottom_sheet, null, false);
                 dialog.setContentView(view);
                 dialog.show();
             }
