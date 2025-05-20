@@ -3,6 +3,7 @@ package com.db.demoapp.code;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
@@ -69,12 +70,29 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        if (tabLayout.getTabCount() > 0) {
+        /*if (tabLayout.getTabCount() > 0) {
             TabLayout.Tab firstTab = tabLayout.getTabAt(0);
             if (firstTab != null && firstTab.getCustomView() != null) {
                 TextView subtitle = firstTab.getCustomView().findViewById(R.id.tabSubtitle);
                 loadCodeFromTab(firstTab.getText() != null ? firstTab.getText().toString()
                         : subtitle.getText().toString());  // 초기 탭 로딩
+            }
+        }*/
+
+        // 탭 생성 및 커스텀 뷰 설정 후
+        if (tabLayout.getTabCount() > 0) {
+            TabLayout.Tab firstTab = tabLayout.getTabAt(0);
+            if (firstTab != null) {
+                firstTab.select();
+                // 100ms 딜레이 후 로딩
+                new Handler().postDelayed(() -> {
+                    if (firstTab.getCustomView() != null) {
+                        TextView subtitle = firstTab.getCustomView().findViewById(R.id.tabSubtitle);
+                        String folder = ((TextView) firstTab.getCustomView().findViewById(R.id.tabTitle)).getText().toString().toLowerCase();
+                        String filename = subtitle.getText().toString();
+                        loadCodeFromTab(folder + "/" + filename);
+                    }
+                }, 100);
             }
         }
 
