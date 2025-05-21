@@ -35,7 +35,6 @@
         <!-- 예제 목록 액티비티 -->
         <activity android:name="com.db.demoapp.ui.AnimationListActivity" />
 
-        <activity android:name="com.db.demoapp.ui.ModalUiListActivity" />
         <activity android:name="com.db.demoapp.ui.LoadingUIActivityList" />
         <activity android:name="com.db.demoapp.ui.PagingUXListActivity" />
 
