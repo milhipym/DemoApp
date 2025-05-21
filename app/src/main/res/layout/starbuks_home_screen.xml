@@ -1,0 +1,143 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- AppBar with collapsing banner -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/collapsingToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:titleEnabled="false">
+
+            <ImageView
+                android:id="@+id/bannerImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@drawable/starbuks_home_banner"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_collapseMode="parallax"
+                android:background="@android:color/transparent" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Scroll content -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="120dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <!-- 내부 스크롤 콘텐츠 -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- 더미 콘텐츠 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick Order"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- FABs 영역 -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom|center"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/transparent"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_marginTop="50dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabGold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gold 12/12"
+                app:icon="@drawable/starbuks_ic_star"
+                android:textColor="#4D4949"
+                android:backgroundTint="@android:color/white"
+                app:iconPadding="8dp"
+                app:elevation="6dp"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                app:layout_anchor="@id/toolbar"
+                app:layout_anchorGravity="top|start"
+                android:layout_marginStart="15dp"/>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabCoupon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Coupon"
+                app:icon="@drawable/starbuks_ic_coupon"
+                android:textColor="#4D4949"
+                android:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                app:layout_anchor="@id/toolbar"
+                app:layout_anchorGravity="top|start"/>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabPay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Pay"
+                app:icon="@drawable/starbuks_ic_pay"
+                android:textColor="#4D4949"
+                android:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                app:layout_anchor="@id/toolbar"
+                app:layout_anchorGravity="top|start"/>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/fabBuddy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Buddy Pass"
+                app:icon="@drawable/starbuks_ic_buddy"
+                android:textColor="#4D4949"
+                android:backgroundTint="@android:color/white"
+                app:elevation="6dp"
+                style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
+                app:layout_anchor="@id/toolbar"
+                app:layout_anchorGravity="top|start"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
