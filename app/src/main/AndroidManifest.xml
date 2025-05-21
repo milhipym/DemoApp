@@ -35,14 +35,15 @@
 
         <!-- 애니메이션 시연 액티비티 -->
         <activity android:name="com.db.demoapp.ui.microitems.SlideDownActivity" />
-        <activity android:name="com.db.demoapp.ui.pagingitems.PagingAppbarTabLayoutActivity" />
 
+        <activity android:name="com.db.demoapp.ui.pagingitems.PagingAppbarTabLayoutActivity" />
         <activity android:name="com.db.demoapp.ui.pagingitems.PagingBottomActivity" />
-+
-        <!-- 코드 보기 액티비티_초기버전 -->
-        <activity android:name="com.db.demoapp.code.SlideDownCodeActivity" />
-        <!-- 코드 보기 액티비티 하이라이트 -->
-        <activity android:name="com.db.demoapp.code.CodeViewActivity" />
+
+        <activity android:name="com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy" />
+        <activity android:name="com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity" />
+        <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewActivty" />
+
+
         <!-- 코드 보기 액티비티 웹뷰 -->
         <activity android:name="com.db.demoapp.code.DynamicTabbedCodeViewActivity" />
 

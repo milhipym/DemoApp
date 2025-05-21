@@ -1,4 +1,3 @@
-
 package com.db.demoapp.code;
 
 import android.graphics.Color;
@@ -6,11 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.db.demoapp.R;
-import com.google.android.material.tabs.TabLayout;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -19,9 +20,8 @@ import java.util.HashMap;
 public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
 
     WebView webView;
-    TabLayout tabLayout;
+    LinearLayout tabContainer;
     String featureName;
-
     HashMap<String, ArrayList<String>> folderFileMap = new HashMap<>();
 
     @Override
@@ -33,13 +33,16 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
         webView.setBackgroundColor(Color.TRANSPARENT);
         webView.getSettings().setJavaScriptEnabled(true);
 
-        tabLayout = findViewById(R.id.tabLayout);
+        tabContainer = findViewById(R.id.tabContainer);
+
         featureName = getIntent().getStringExtra("feature");
         if (featureName == null) featureName = "blink";
 
         try {
             String[] folders = getAssets().list(featureName);
             if (folders != null) {
+                boolean firstTabLoaded = false;
+
                 for (String folder : folders) {
                     String folderPath = featureName + "/" + folder;
                     String[] files = getAssets().list(folderPath);
@@ -48,18 +51,28 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
                         for (String file : files) {
                             fileList.add(file);
 
-                            // 🔽 커스텀 탭 레이아웃 설정
-                            TabLayout.Tab tab = tabLayout.newTab();
+                            // 탭 커스텀 뷰 inflate
                             View customTabView = LayoutInflater.from(this)
-                                    .inflate(R.layout.tab_custom_view, null);
+                                    .inflate(R.layout.tab_custom_view, tabContainer, false);
+
                             TextView title = customTabView.findViewById(R.id.tabTitle);
                             TextView subtitle = customTabView.findViewById(R.id.tabSubtitle);
 
                             title.setText(folder.toUpperCase());
                             subtitle.setText(file);
 
-                            tab.setCustomView(customTabView);
-                            tabLayout.addTab(tab);
+                            final String fullPath = folder + "/" + file;
+
+                            // 클릭 시 코드 로딩
+                            customTabView.setOnClickListener(v -> loadCodeFromTab(fullPath));
+
+                            tabContainer.addView(customTabView);
+
+                            // 첫 번째 탭 자동 로딩
+                            if (!firstTabLoaded) {
+                                loadCodeFromTab(fullPath);
+                                firstTabLoaded = true;
+                            }
                         }
                         folderFileMap.put(folder, fileList);
                     }
@@ -68,32 +81,7 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        if (tabLayout.getTabCount() > 0) {
-            TabLayout.Tab firstTab = tabLayout.getTabAt(0);
-            if (firstTab != null && firstTab.getCustomView() != null) {
-                TextView subtitle = firstTab.getCustomView().findViewById(R.id.tabSubtitle);
-                loadCodeFromTab(firstTab.getText() != null ? firstTab.getText().toString()
-                        : subtitle.getText().toString());  // 초기 탭 로딩
-            }
-        }
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if (tab.getCustomView() != null) {
-                    TextView subtitle = tab.getCustomView().findViewById(R.id.tabSubtitle);
-                    String folder = ((TextView) tab.getCustomView().findViewById(R.id.tabTitle)).getText().toString().toLowerCase();
-                    String filename = subtitle.getText().toString();
-                    loadCodeFromTab(folder + "/" + filename);
-                }
-            }
-
-            @Override public void onTabUnselected(TabLayout.Tab tab) {}
-            @Override public void onTabReselected(TabLayout.Tab tab) {}
-        });
     }
-
 
     private void loadCodeFromTab(String tabText) {
         try {

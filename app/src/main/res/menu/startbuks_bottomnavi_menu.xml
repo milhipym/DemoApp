@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/starbucks_home"
+        android:icon="@drawable/starbucks_home"
+        android:title="Home" />
+    <item
+        android:id="@+id/starbucks_pay"
+        android:icon="@drawable/starbucks_pay"
+        android:title="Pay" />
+    <item
+        android:id="@+id/starbucks_order"
+        android:icon="@drawable/starbucks_coffe"
+        android:title="Order" />
+    <item
+        android:id="@+id/starbucks_shop"
+        android:icon="@drawable/starbucks_shop"
+        android:title="Shop" />
+    <item
+        android:id="@+id/starbucks_other"
+        android:icon="@drawable/starbucks_other"
+        android:title="Other" />
+</menu>

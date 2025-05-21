@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //FUN_LAB
         Button btnAnim5 = findViewById(R.id.btnAnimation5);
         btnAnim5.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.FunLabActivityList.class);
             startActivity(intent);
         });
         //API SHOWCASE
