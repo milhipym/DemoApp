@@ -61,6 +61,10 @@
         <activity android:name=".ui.funlab.StarbuksAppbarCollapActivity" />
         <activity android:name=".ui.funlab.StarbuksCardViewActivty" /> <!-- 코드 보기 액티비티 웹뷰 -->
         <activity android:name=".ui.funlab.StarbuksCardViewPageIndicatorActivity" />
+        <activity android:name=".ui.funlab.StarbuksRecyclerViewActivity" />
+        <activity android:name=".ui.funlab.StarbuksBottomSheetActivity" />
+
+
         <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->
         <activity
             android:name=".ui.etc.EtcActivity"
@@ -69,13 +73,6 @@
             android:name=".ui.etc.healthconnect.test.HealthConnectTestActivity"
             android:exported="false">
 
-            <!--
-                The app needs to handle this intent and display an appropriate privacy policy
-                explaining how the user's data will be used and handled.
-
-                This intent is sent to the app when the user clicks on the "privacy policy" link
-                in the Health Connect permissions dialog.
-            -->
             <intent-filter>
                 <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
             </intent-filter>

@@ -9,7 +9,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTestBottomSheet"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="확장 바텀시트 테스트"
         android:textAllCaps="false"
         android:textSize="16sp"

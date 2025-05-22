@@ -19,8 +19,10 @@ import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity;
 import com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy;
+import com.db.demoapp.ui.funlab.StarbuksBottomSheetActivity;
 import com.db.demoapp.ui.funlab.StarbuksCardViewActivty;
 import com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity;
+import com.db.demoapp.ui.funlab.StarbuksRecyclerViewActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,24 +43,34 @@ public class FunLabActivityList extends AppCompatActivity {
         List<CommonItemAdapter.ItemData> items = Arrays.asList(
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "StarbuksBottomNaviActiviy",
-                        "스타벅스 바텀 네비게이터"
+                        "STEP1 스타벅스 하단바 메뉴 구성",
+                        "BottomNavigation 하단에 위치 하며 주요메뉴를 빠르게 이동."
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "StarbuksAppbarCollapActivity",
-                        "스타벅스 앱 바"
+                        "STEP2 스타벅스 상단 배너 및 플로팅 버튼",
+                        "CollapsingToolbarLayout 뉴스, 프로필, 배너 에서 많이 사용."
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "StarbuksCardViewActivty",
-                        "스타벅스 카드뷰"
+                        "STEP3 스타벅스 퀵 주문 메뉴",
+                        "CardView 정보 덩어리를 보기 좋게 담는 박스형 UI 컴포넌트"
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "StarbuksCardViewPageIndicatorActivity",
-                        "스타벅스 페이징"
-                )
+                        "STEP4 스타벅스 인디케이터",
+                        "뉴스가 얼마나 있는지 알려 주는 Indicator 및 무한 루프"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "STEP5 스타벅스 회사 배너",
+                        "RecyclerView 소수의 뷰만 생성하여 메모리 절약"
+                )/*,
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "STEP6 스타벅스 카드/간편결제",
+                        "BottomSheet 효율적인 공간 활용 및 맥락 유지를 위한 모달 팝업"
+                )*/
         );
 
         CommonItemAdapter adapter = new CommonItemAdapter(this, items);
@@ -79,6 +91,12 @@ public class FunLabActivityList extends AppCompatActivity {
                 case 3:
                     intent = new Intent(this, StarbuksCardViewPageIndicatorActivity.class);
                     break;
+                case 4:
+                    intent = new Intent(this, StarbuksRecyclerViewActivity.class);
+                    break;
+                /*case 5:
+                    intent = new Intent(this, StarbuksBottomSheetActivity.class);
+                    break;*/
             }
             if (intent != null) startActivity(intent);
         });
