@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <!--<item name="android:statusBarColor">@color/white</item>-->
 
+        <item name="android:statusBarColor">#F8FAFC</item>
+        <!-- 내비게이션바 투명 -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- 투명 상태바/내비게이션바 (Optional) -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 </resources>

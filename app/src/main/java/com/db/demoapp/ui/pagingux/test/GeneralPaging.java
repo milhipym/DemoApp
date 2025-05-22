@@ -1,6 +1,8 @@
 package com.db.demoapp.ui.pagingux.test;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +62,13 @@ public class GeneralPaging extends AppCompatActivity {
                 currentPage++;
                 updatePage();
             }
+        });
+
+        ImageButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
+            intent.putExtra("feature", "general_paging"); // ✅ 핵심 포인트
+            startActivity(intent);
         });
     }
 

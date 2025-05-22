@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.db.demoapp.R;
 
@@ -29,5 +30,13 @@ public class GeneralThreeDMotion extends AppCompatActivity {
             sceneViewerIntent.setPackage("com.google.android.googlequicksearchbox");
             startActivity(sceneViewerIntent);
         });
+
+        ImageButton fab = findViewById(R.id.fabCode);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
+            intent.putExtra("feature", "three_d"); // ✅ 핵심 포인트
+            startActivity(intent);
+        });
+
     }
 }

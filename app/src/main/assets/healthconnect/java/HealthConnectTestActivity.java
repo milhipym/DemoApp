@@ -64,13 +64,6 @@ public class HealthConnectTestActivity extends AppCompatActivity {
         setContentView(R.layout.activity_health_connect);
         Button buttonHealthConnect = findViewById(R.id.buttonHealthConnect);
         buttonHealthConnect.setOnClickListener(v -> startHealthConnectProcess());
-
-        ImageButton fab = findViewById(R.id.fabCode);
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "healthconnect"); // ✅ 핵심 포인트
-            startActivity(intent);
-        });
     }
 
     private void startHealthConnectProcess() {

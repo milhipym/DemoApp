@@ -38,13 +38,5 @@ public class StarbuksBottomNaviActiviy extends AppCompatActivity {
         });
 
         navView.setSelectedItemId(R.id.nav_home);
-
-        ImageButton fab = findViewById(R.id.fabCode);
-
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "page_bottom");
-            startActivity(intent);
-        });
     }
 }

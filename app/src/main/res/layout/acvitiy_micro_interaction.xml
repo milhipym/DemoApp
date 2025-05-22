@@ -26,7 +26,7 @@
         android:id="@+id/desc"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="재미잇는 마이크로 인터렉션"
+        android:text="재밌는 마이크로 인터렉션"
         android:textSize="14sp"
         android:textColor="#666"
         android:layout_marginTop="8dp"

@@ -7,6 +7,8 @@
         <package android:name="com.google.android.apps.healthdata" />
     </queries>
 
+
+
     <uses-permission android:name="android.health.connect.action.HEALTH_CONNECT_SETTINGS" />
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_HISTORY" />
@@ -22,6 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoApp"
         tools:targetApi="33">
+        <activity
+            android:name=".ui.apishowcase.test.RetrofitTestActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.microinteraction.test.ApiShowCaseExample"
             android:exported="false" />
@@ -55,7 +60,7 @@
         <activity android:name=".ui.funlab.StarbuksBottomNaviActiviy" />
         <activity android:name=".ui.funlab.StarbuksAppbarCollapActivity" />
         <activity android:name=".ui.funlab.StarbuksCardViewActivty" /> <!-- 코드 보기 액티비티 웹뷰 -->
-        <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity" />
+        <activity android:name=".ui.funlab.StarbuksCardViewPageIndicatorActivity" />
         <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->
         <activity
             android:name=".ui.etc.EtcActivity"

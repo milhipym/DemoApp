@@ -19,14 +19,6 @@ public class BottomSheetTestActivity extends AppCompatActivity {
 
         Button btnTest = findViewById(R.id.btnTestBottomSheet);
         btnTest.setOnClickListener(v -> showCustomBottomSheet());
-
-        ImageButton fab = findViewById(R.id.fabCode);
-        //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "modal"); // ✅ 핵심 포인트
-            startActivity(intent);
-        });
     }
 
     private void showCustomBottomSheet() {

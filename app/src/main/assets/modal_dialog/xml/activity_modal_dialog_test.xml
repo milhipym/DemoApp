@@ -4,11 +4,6 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--    <Button
-        android:id="@+id/btnTestDialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="모달 팝업 테스트"/>-->
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTestDialog"
@@ -28,15 +23,5 @@
         android:textColor="@android:color/white"
         android:layout_centerHorizontal="true"
         />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="소스코드보기"
-        android:src="@android:drawable/ic_menu_info_details"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_margin="50dp" />
 
 </RelativeLayout>

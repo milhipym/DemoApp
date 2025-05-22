@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.db.demoapp.R;
@@ -40,6 +41,13 @@ public class ApiShowCaseExample extends AppCompatActivity {
 
         // 항상 진입 시마다 안내
         btnApi1.post(this::showShowcaseStep1);
+
+        ImageButton fab = findViewById(R.id.fabCode);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
+            intent.putExtra("feature", "show_case"); // ✅ 핵심 포인트
+            startActivity(intent);
+        });
     }
 
     private void showShowcaseStep1() {

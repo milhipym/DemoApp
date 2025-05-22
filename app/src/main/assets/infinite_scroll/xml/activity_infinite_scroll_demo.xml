@@ -8,13 +8,4 @@
         android:id="@+id/rvInfinite"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="소스코드보기"
-        android:src="@android:drawable/ic_menu_info_details"
-        android:layout_gravity="bottom|start"
-        android:layout_margin="24dp"/>
 </FrameLayout>

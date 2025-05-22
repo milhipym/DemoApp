@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
+import com.db.demoapp.ui.apishowcase.test.RetrofitTestActivity;
 import com.db.demoapp.ui.microinteraction.test.ApiShowCaseExample;
 
 import java.util.Arrays;
@@ -30,8 +31,8 @@ public class ApiShowCaseActivity extends AppCompatActivity {
         List<CommonItemAdapter.ItemData> items = Arrays.asList(
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "API",
-                        "API API!!"
+                        "안드로이드 API 통신 예제",
+                        "편리하게 데이터를 가져와 봅시다!!"
                 )
         );
 
@@ -41,7 +42,7 @@ public class ApiShowCaseActivity extends AppCompatActivity {
         adapter.setOnItemClickListener(position -> {
             Intent intent = null;
             if (position == 0) {
-                intent = new Intent(this, ApiShowCaseExample.class);
+                intent = new Intent(this, RetrofitTestActivity.class);
             }
             if (intent != null) startActivity(intent);
         });

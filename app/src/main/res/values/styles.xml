@@ -14,4 +14,15 @@
         <item name="android:background">@drawable/modal_bg_bottom_sheet_rounded</item>
     </style>
 
+    <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 상태바 색상 -->
+        <item name="android:statusBarColor">#F8FAFC</item>
+        <!-- 내비게이션바 색상 -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- 상태바 투명 설정 (Optional) -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <!-- 내비게이션바 투명 설정 (Optional) -->
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
 </resources>

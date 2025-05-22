@@ -1,43 +1,218 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/skeletonDemoContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:background="#F8FAFC"
+    android:padding="24dp">
 
+    <!-- Skeleton(Shimmer) UI -->
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:shimmer_auto_start="true"
-        app:shimmer_duration="1200"
-        app:shimmer_base_alpha="0.7"
-        app:shimmer_highlight_alpha="1.0"
-        app:shimmer_direction="left_to_right"
-        app:layout_constraintTop_toBottomOf="@id/title"
-        >
-        <!-- 스켈레톤 아이템들 -->
+        app:shimmer_duration="1200">
+
         <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
-            <include layout="@layout/item_skeleton"/>
+            android:divider="?android:attr/dividerHorizontal"
+            android:showDividers="middle"
+            android:paddingBottom="16dp">
+
+            <!-- 카드형 스켈레톤 3개 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_circle_gray"
+                        android:layout_gravity="center_vertical"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <View
+                            android:layout_width="120dp"
+                            android:layout_height="16dp"
+                            android:background="#E0E0E0"
+                            android:layout_marginBottom="8dp"/>
+
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="12dp"
+                            android:background="#E0E0E0"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- 위 CardView를 3개 복붙 -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_circle_gray"
+                        android:layout_gravity="center_vertical"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <View
+                            android:layout_width="120dp"
+                            android:layout_height="16dp"
+                            android:background="#E0E0E0"
+                            android:layout_marginBottom="8dp"/>
+
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="12dp"
+                            android:background="#E0E0E0"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:background="@drawable/bg_circle_gray"
+                        android:layout_gravity="center_vertical"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+
+                        <View
+                            android:layout_width="120dp"
+                            android:layout_height="16dp"
+                            android:background="#E0E0E0"
+                            android:layout_marginBottom="8dp"/>
+
+                        <View
+                            android:layout_width="80dp"
+                            android:layout_height="12dp"
+                            android:background="#E0E0E0"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
 
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <!-- 실제 데이터 UI (초기에는 GONE) -->
+    <LinearLayout
+        android:id="@+id/dataLayout"
+        android:orientation="vertical"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="24dp"
-        android:src="@android:drawable/ic_menu_info_details"/>
-</FrameLayout>
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingBottom="16dp">
+
+        <!-- 실제 데이터 카드 3개 예시 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_profile_placeholder"
+                    android:background="@drawable/bg_circle_gray"
+                    android:scaleType="centerCrop"
+                    android:layout_gravity="center_vertical"/>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="홍길동"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:textColor="#222"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1시간 전"
+                        android:textSize="12sp"
+                        android:textColor="#888"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- 위 CardView를 3개 복붙 또는 코드로 동적 추가도 가능 -->
+        <!-- ... -->
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

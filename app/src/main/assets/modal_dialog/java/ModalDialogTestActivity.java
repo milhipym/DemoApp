@@ -19,13 +19,6 @@ public class ModalDialogTestActivity extends AppCompatActivity {
         Button btnTest = findViewById(R.id.btnTestDialog);
         btnTest.setOnClickListener(v -> showCustomDialog());
 
-        ImageButton fab = findViewById(R.id.fabCode);
-        //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "modal_dialog"); // ✅ 핵심 포인트
-            startActivity(intent);
-        });
     }
 
     private void showCustomDialog() {

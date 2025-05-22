@@ -91,7 +91,6 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
         });
 
         ImageButton fab = findViewById(R.id.fab);
-        //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "infinite_scroll"); // ✅ 핵심 포인트

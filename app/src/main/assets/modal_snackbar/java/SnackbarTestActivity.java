@@ -22,13 +22,6 @@ public class SnackbarTestActivity extends AppCompatActivity {
 
         Button btnTest = findViewById(R.id.btnTestSnackbar);
         btnTest.setOnClickListener(v -> showCustomSnackbar());
-
-        ImageButton fab = findViewById(R.id.fabCode);
-        fab.setOnClickListener(v -> {
-            Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "modal_snackbar"); // ✅ 핵심 포인트
-            startActivity(intent);
-        });
     }
 
     private void showCustomSnackbar() {
