@@ -29,6 +29,20 @@ public class DynamicTabbedCodeViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code_dynamic);
 
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
+            // Android 11 이상
+            getWindow().setDecorFitsSystemWindows(false);
+        } else {
+            // Android 10 이하
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            );
+        }
+        getWindow().setNavigationBarColor(Color.TRANSPARENT); // 네비게이션바 투명
+
+
         webView = findViewById(R.id.webCodeView);
         webView.setBackgroundColor(Color.TRANSPARENT);
         webView.getSettings().setJavaScriptEnabled(true);
