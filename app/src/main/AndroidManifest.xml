@@ -52,6 +52,7 @@
         <activity android:name="com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy" />
         <activity android:name="com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity" />
         <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewActivty" />
+        <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity" />
 
 
         <!-- 코드 보기 액티비티 웹뷰 -->

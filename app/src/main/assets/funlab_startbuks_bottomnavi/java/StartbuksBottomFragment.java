@@ -14,8 +14,8 @@ import androidx.fragment.app.Fragment;
 public class StartbuksBottomFragment extends Fragment {
     private static final String ARG_TEXT = "label";
 
-    public static StartbuksBottomFragment newInstance(String text) {
-        StartbuksBottomFragment fragment = new StartbuksBottomFragment();
+    public static StarbuksBottomFragment newInstance(String text) {
+        StarbuksBottomFragment fragment = new StarbuksBottomFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, text);
         fragment.setArguments(args);

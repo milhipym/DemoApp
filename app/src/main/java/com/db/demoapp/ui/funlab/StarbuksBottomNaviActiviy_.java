@@ -22,15 +22,15 @@ public class StarbuksBottomNaviActiviy_ extends AppCompatActivity {
             Fragment selectedFragment = null;
             int itemId = item.getItemId();
             if (itemId == R.id.starbucks_home) {
-                selectedFragment = StartbuksBottomFragment.newInstance("home 화면입니다");
+                selectedFragment = StarbuksBottomFragment.newInstance("home 화면입니다");
             } else if (itemId == R.id.starbucks_pay) {
-                selectedFragment = StartbuksBottomFragment.newInstance("pay 화면입니다");
+                selectedFragment = StarbuksBottomFragment.newInstance("pay 화면입니다");
             } else if (itemId == R.id.starbucks_order) {
-                selectedFragment = StartbuksBottomFragment.newInstance("order 화면입니다");
+                selectedFragment = StarbuksBottomFragment.newInstance("order 화면입니다");
             } else if (itemId == R.id.starbucks_shop) {
-                selectedFragment = StartbuksBottomFragment.newInstance("shop 화면입니다");
+                selectedFragment = StarbuksBottomFragment.newInstance("shop 화면입니다");
             } else if (itemId == R.id.starbucks_other) {
-                selectedFragment = StartbuksBottomFragment.newInstance("other 화면입니다");
+                selectedFragment = StarbuksBottomFragment.newInstance("other 화면입니다");
             }
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.start_fragment_container, selectedFragment).commit();

@@ -11,13 +11,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.db.demoapp.R;
-
-public class StartbuksBottomFragment_ extends Fragment {
+public class StarbuksBottomFragment extends Fragment {
     private static final String ARG_TEXT = "label";
 
-    public static StartbuksBottomFragment_ newInstance(String text) {
-        StartbuksBottomFragment_ fragment = new StartbuksBottomFragment_();
+    public static StarbuksBottomFragment newInstance(String text) {
+        StarbuksBottomFragment fragment = new StarbuksBottomFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEXT, text);
         fragment.setArguments(args);
@@ -29,14 +27,10 @@ public class StartbuksBottomFragment_ extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         String label = getArguments() != null ? getArguments().getString(ARG_TEXT) : "";
 
-        if ("home 화면입니다".equals(label)) {
-            return inflater.inflate(R.layout.starbuks_home_screen, container, false);
-        } else {
             TextView textView = new TextView(getContext());
             textView.setText(label);
             textView.setTextSize(24f);
             textView.setGravity(Gravity.CENTER);
             return textView;
-        }
     }
 }

@@ -16,6 +16,7 @@ import com.db.demoapp.R;
 import com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity;
 import com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy;
 import com.db.demoapp.ui.funlab.StarbuksCardViewActivty;
+import com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity;
 
 public class FunLabActivityList extends AppCompatActivity {
 
@@ -52,6 +53,10 @@ public class FunLabActivityList extends AppCompatActivity {
                 case 2 :
                     Intent i3 = new Intent(this, StarbuksCardViewActivty.class);
                     startActivity(i3);
+                    break;
+                case 3 :
+                    Intent i4 = new Intent(this, StarbuksCardViewPageIndicatorActivity.class);
+                    startActivity(i4);
                     break;
             }
 
