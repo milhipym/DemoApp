@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.db.demoapp.R;
 import com.db.demoapp.ui.apishowcase.client.RetrofitClient;
@@ -31,18 +34,26 @@ public class RetrofitTestActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_retrofit_test);
 
+        // 1. Edge-to-Edge 레이아웃 적용
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
-            // Android 11 이상
             getWindow().setDecorFitsSystemWindows(false);
         } else {
-            // Android 10 이하
             getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
             );
         }
+        getWindow().setStatusBarColor(Color.parseColor("#F8FAFC")); // 배경색과 맞추기
         getWindow().setNavigationBarColor(Color.TRANSPARENT); // 네비게이션바 투명
+
+        // 2. 시스템 바 영역만큼 padding 적용 (루트 ConstraintLayout의 id가 rootLayout라고 가정)
+        View rootView = findViewById(R.id.rootLayout);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+            Insets sysInsets = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(sysInsets.left, sysInsets.top, sysInsets.right, sysInsets.bottom);
+            return insets;
+        });
 
 
         btnTest = findViewById(R.id.btnTest);
