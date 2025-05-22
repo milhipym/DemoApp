@@ -1,3 +1,26 @@
+package com.db.demoapp.ui.loading.test;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.db.demoapp.R;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class InfiniteScrollDemoActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private List<String> items = new ArrayList<>();
@@ -50,14 +73,15 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
                 super.onScrolled(rv, dx, dy);
                 LinearLayoutManager lm = (LinearLayoutManager) rv.getLayoutManager();
                 if (!isLoading && lm.findLastCompletelyVisibleItemPosition() == items.size() - 1) {
+                    Toast.makeText(getApplicationContext(), "아이템 조회중...", Toast.LENGTH_SHORT).show();
                     isLoading = true;
                     new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             int start = items.size() + 1;
                             for (int i = 0; i < 10; i++) {
-                            items.add("아이템 " + (start + i));
-                        }
+                                items.add("아이템 " + (start + i));
+                            }
                             rvAdapter.notifyDataSetChanged();
                             isLoading = false;
                         }
@@ -72,6 +96,12 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "infinite_scroll"); // ✅ 핵심 포인트
             startActivity(intent);
+        });
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setTranslationY(-bottomInset);
+            return insets;
         });
     }
 }

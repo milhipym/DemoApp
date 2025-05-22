@@ -11,87 +11,76 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.db.demoapp.R;
+import com.db.demoapp.comm.item.CommonItemAdapter;
+import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity;
 import com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy;
 import com.db.demoapp.ui.funlab.StarbuksCardViewActivty;
 import com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity;
 
-public class FunLabActivityList extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.List;
 
-    String[] animationItemsTitle = {"Starbuks Bottom Navigation", "Starbuks Appbar", "Infinite Scroll", "Modal UI"};
-    String[] animationItemsSubTitle = {"사용자 액션에 대한 반응형 애니메이션",
-            "콘텐츠 로딩시간의 체감상 감소를 위한 UI",
-            "한 페이지에서 많은 컨텐츠를 담기 위한 UI",
-            "사용자에게 효과적으로 정보 선택을 제공하는 UI"};
-    int[] icons = {
-            R.drawable.ic_micro_interaction,
-            R.drawable.ic_skeleton_ui,
-            R.drawable.ic_micro_interaction,
-            R.drawable.ic_skeleton_ui
-    };
+public class FunLabActivityList extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animation_list);
+        setContentView(R.layout.activity_fun_lab);
 
-        ListView listView = findViewById(R.id.animationList);
-        listView.setAdapter(new FunLabAdapter());
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        int spaceInPx = (int) (getResources().getDisplayMetrics().density * 8); // 16dp 간격
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(spaceInPx));
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
+        // 공통 데이터 생성 (첨부 이미지의 순서/설명 반영)
+        List<CommonItemAdapter.ItemData> items = Arrays.asList(
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "StarbuksBottomNaviActiviy",
+                        "스타벅스 바텀 네비게이터"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "StarbuksAppbarCollapActivity",
+                        "스타벅스 앱 바"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "StarbuksCardViewActivty",
+                        "스타벅스 카드뷰"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "StarbuksCardViewPageIndicatorActivity",
+                        "스타벅스 페이징"
+                )
+        );
+
+        CommonItemAdapter adapter = new CommonItemAdapter(this, items);
+        recyclerView.setAdapter(adapter);
+
+        adapter.setOnItemClickListener(position -> {
+            Intent intent = null;
             switch (position) {
-                case 0 :
-                    Intent i1 = new Intent(this, StarbuksBottomNaviActiviy.class);
-                    startActivity(i1);
+                case 0:
+                    intent = new Intent(this, StarbuksBottomNaviActiviy.class);
                     break;
-                case 1 :
-                    Intent i2 = new Intent(this, StarbuksAppbarCollapActivity.class);
-                    startActivity(i2);
+                case 1:
+                    intent = new Intent(this, StarbuksAppbarCollapActivity.class);
                     break;
-                case 2 :
-                    Intent i3 = new Intent(this, StarbuksCardViewActivty.class);
-                    startActivity(i3);
+                case 2:
+                    intent = new Intent(this, StarbuksCardViewActivty.class);
                     break;
-                case 3 :
-                    Intent i4 = new Intent(this, StarbuksCardViewPageIndicatorActivity.class);
-                    startActivity(i4);
+                case 3:
+                    intent = new Intent(this, StarbuksCardViewPageIndicatorActivity.class);
                     break;
             }
-
+            if (intent != null) startActivity(intent);
         });
-    }
-
-    class FunLabAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return animationItemsTitle.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return animationItemsTitle[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(FunLabActivityList.this).inflate(R.layout.item_animation, parent, false);
-            }
-            ImageView icon = convertView.findViewById(R.id.itemIcon);
-            TextView title = convertView.findViewById(R.id.itemTitle);
-            TextView subtitle = convertView.findViewById(R.id.itemSubTitle);
-
-            icon.setImageResource(icons[position]);
-            title.setText(animationItemsTitle[position]);
-            subtitle.setText(animationItemsSubTitle[position]);
-            return convertView;
-        }
     }
 }

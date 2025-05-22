@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import com.db.demoapp.R;
 
 public class BottomSheetTestActivity extends AppCompatActivity {
@@ -25,6 +28,12 @@ public class BottomSheetTestActivity extends AppCompatActivity {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "modal_bottom"); // ✅ 핵심 포인트
             startActivity(intent);
+        });
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setTranslationY(-bottomInset);
+            return insets;
         });
     }
 

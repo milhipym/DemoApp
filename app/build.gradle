@@ -47,4 +47,12 @@ dependencies {
     //lottie
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    //skeleton UI
+    implementation ("com.facebook.shimmer:shimmer:0.5.0")
+
+    //API Showcase
+    implementation 'com.github.erkutaras:ShowcaseView:1.4.0'
+
+
 }

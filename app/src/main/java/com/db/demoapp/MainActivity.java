@@ -3,11 +3,17 @@ package com.db.demoapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.VideoView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.db.demoapp.ui.apishowcase.ApiShowCaseActivity;
+import com.db.demoapp.ui.microinteraction.MicroInteractionsActivityList;
+import com.db.demoapp.ui.threedmotion.ThreeDMotionActivity;
+import com.db.demoapp.ui.loading.LoadingUIActivityList;
 import com.db.demoapp.ui.etc.EtcActivity;
 import com.db.demoapp.ui.modal.ModalUIActivity;
-import com.db.demoapp.ui.PagingUXListActivity;
+import com.db.demoapp.ui.pagingux.PagingUXListActivity;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -23,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         //로딩UI
         Button btnAnim1 = findViewById(R.id.btnAnimation1);
         btnAnim1.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, LoadingUIActivityList.class);
             startActivity(intent);
         });
         //페이징UX
@@ -35,13 +41,13 @@ public class MainActivity extends AppCompatActivity {
         //마이크로인터랙션
         Button btnAnim3 = findViewById(R.id.btnAnimation3);
         btnAnim3.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.MicroInteractionsActivityList.class);
+            Intent intent = new Intent(MainActivity.this, MicroInteractionsActivityList.class);
             startActivity(intent);
         });
         //3D UI/MOTION DESIGN
         Button btnAnim4 = findViewById(R.id.btnAnimation4);
         btnAnim4.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, ThreeDMotionActivity.class);
             startActivity(intent);
         });
         //FUN_LAB
@@ -53,15 +59,15 @@ public class MainActivity extends AppCompatActivity {
         //API SHOWCASE
         Button btnAnim6 = findViewById(R.id.btnAnimation6);
         btnAnim6.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, ApiShowCaseActivity.class);
             startActivity(intent);
         });
         //COMOPOSE(ANDROID)
-        Button btnAnim7 = findViewById(R.id.btnAnimation7);
+        /*Button btnAnim7 = findViewById(R.id.btnAnimation7);
         btnAnim7.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, com.db.demoapp.ui.AnimationListActivity.class);
+            Intent intent = new Intent(MainActivity.this, Comp.class);
             startActivity(intent);
-        });
+        });*/
         //ETC
         Button btnAnim8 = findViewById(R.id.btnAnimation8);
         btnAnim8.setOnClickListener(v -> {

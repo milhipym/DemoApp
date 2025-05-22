@@ -11,68 +11,59 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.db.demoapp.R;
+import com.db.demoapp.comm.item.CommonItemAdapter;
+import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
+import com.db.demoapp.ui.loading.test.InfiniteScrollDemoActivity;
+import com.db.demoapp.ui.loading.test.SkeletonDemoActivity;
 import com.db.demoapp.ui.microitems.SlideDownActivity;
 
-public class AnimationListActivity extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.List;
 
-    String[] animationItemsTitle = {"Micro Interaction", "Skeleton UI", "Infinite Scroll", "Modal UI"};
-    String[] animationItemsSubTitle = {"사용자 액션에 대한 반응형 애니메이션",
-                                        "콘텐츠 로딩시간의 체감상 감소를 위한 UI",
-                                        "한 페이지에서 많은 컨텐츠를 담기 위한 UI",
-                                        "사용자에게 효과적으로 정보 선택을 제공하는 UI"};
-    int[] icons = {
-            R.drawable.ic_micro_interaction,
-            R.drawable.ic_skeleton_ui,
-            R.drawable.ic_micro_interaction,
-            R.drawable.ic_skeleton_ui
-    };
+public class AnimationListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_animation_list);
+        setContentView(R.layout.activity_loading_ui);
 
-        ListView listView = findViewById(R.id.animationList);
-        listView.setAdapter(new AnimationAdapter());
+        RecyclerView recyclerView = findViewById(R.id.recyclerView);
+        int spaceInPx = (int) (getResources().getDisplayMetrics().density * 8); // 16dp 간격
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new VerticalSpaceItemDecoration(spaceInPx));
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
+        // 공통 데이터 생성 (첨부 이미지의 순서/설명 반영)
+        List<CommonItemAdapter.ItemData> items = Arrays.asList(
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Infinite 스크롤",
+                        "스크롤이 페이지의 끝에 도달했을 때 자동으로 다음 데이터를 요청하여 받아오는 UX 기능"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "스켈레톤 UI",
+                        "콘텐츠가 로딩될 때 화면이 중지된 것처럼 보이지 않게끔 모션을 적용하여 보여주는 화면"
+                )
+        );
 
-            Intent intent = new Intent(this, SlideDownActivity.class);
-            startActivity(intent);
-        });
-    }
+        CommonItemAdapter adapter = new CommonItemAdapter(this, items);
+        recyclerView.setAdapter(adapter);
 
-    class AnimationAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return animationItemsTitle.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return animationItemsTitle[position];
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return position;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(AnimationListActivity.this).inflate(R.layout.item_animation, parent, false);
+        adapter.setOnItemClickListener(position -> {
+            Intent intent = null;
+            switch (position) {
+                case 0:
+                    intent = new Intent(this, InfiniteScrollDemoActivity.class);
+                    break;
+                case 1:
+                    intent = new Intent(this, SkeletonDemoActivity.class);
+                    break;
             }
-            ImageView icon = convertView.findViewById(R.id.itemIcon);
-            TextView title = convertView.findViewById(R.id.itemTitle);
-            TextView subtitle = convertView.findViewById(R.id.itemSubTitle);
-
-            icon.setImageResource(icons[position]);
-            title.setText(animationItemsTitle[position]);
-            subtitle.setText(animationItemsSubTitle[position]);
-            return convertView;
-        }
+            if (intent != null) startActivity(intent);
+        });
     }
 }

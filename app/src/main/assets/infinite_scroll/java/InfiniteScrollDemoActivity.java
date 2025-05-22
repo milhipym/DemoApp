@@ -1,4 +1,4 @@
-package com.db.demoapp.ui;
+package com.db.demoapp.ui.loading.test;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,8 +40,8 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
 
         // 초기 데이터
         for (int i = 1; i <= 20; i++) {
-        items.add("아이템 " + i);
-    }
+            items.add("아이템 " + i);
+        }
 
         rvAdapter = new RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             @Override
@@ -94,6 +96,12 @@ public class InfiniteScrollDemoActivity extends AppCompatActivity {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "infinite_scroll"); // ✅ 핵심 포인트
             startActivity(intent);
+        });
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setTranslationY(-bottomInset);
+            return insets;
         });
     }
 }

@@ -10,6 +10,9 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import com.db.demoapp.R;
 
 public class SnackbarTestActivity extends AppCompatActivity {
@@ -26,6 +29,12 @@ public class SnackbarTestActivity extends AppCompatActivity {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "modal_snackbar"); // ✅ 핵심 포인트
             startActivity(intent);
+        });
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setTranslationY(-bottomInset);
+            return insets;
         });
     }
 

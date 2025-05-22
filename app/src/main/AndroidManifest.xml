@@ -1,70 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.db.demoapp" >
+    package="com.db.demoapp">
     <!-- queries -->
     <queries>
         <package android:name="com.google.android.apps.healthdata" />
     </queries>
 
-    <uses-permission android:name="android.health.connect.action.HEALTH_CONNECT_SETTINGS"/>
-    <uses-permission android:name="android.permission.health.READ_STEPS"/>
+    <uses-permission android:name="android.health.connect.action.HEALTH_CONNECT_SETTINGS" />
+    <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_HISTORY" />
-    <uses-permission android:name="android.permission.health.WRITE_STEPS"/>
-    <uses-permission android:name="android.permission.health.READ_TOTAL_CALORIES_BURNED"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.health.WRITE_STEPS" />
+    <uses-permission android:name="android.permission.health.READ_TOTAL_CALORIES_BURNED" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoApp"
         tools:targetApi="33">
-
-        <!-- 런처 액티비티 -->
-        <activity android:name="com.db.demoapp.MainActivity"
+        <activity
+            android:name=".ui.microinteraction.test.ApiShowCaseExample"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apishowcase.ApiShowCaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.threedmotion.test.GeneralThreeDMotion"
+            android:exported="false" />
+        <activity
+            android:name=".ui.modal.test.BottomSheetExpandedTestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- 예제 목록 액티비티 -->
-        <activity android:name="com.db.demoapp.ui.AnimationListActivity" />
-
-        <activity android:name="com.db.demoapp.ui.LoadingUIActivityList" />
-        <activity android:name="com.db.demoapp.ui.PagingUXListActivity" />
-
-        <activity android:name="com.db.demoapp.ui.MicroInteractionsActivityList" />
-        <activity android:name="com.db.demoapp.ui.ThreeDMotionUiActivityList" />
-        <activity android:name="com.db.demoapp.ui.FunLabActivityList" />
-
-
-        <!-- 애니메이션 시연 액티비티 -->
-        <activity android:name="com.db.demoapp.ui.microitems.SlideDownActivity" />
-
-        <activity android:name="com.db.demoapp.ui.pagingitems.PagingAppbarTabLayoutActivity" />
-        <activity android:name="com.db.demoapp.ui.pagingitems.PagingBottomActivity" />
-
-        <activity android:name="com.db.demoapp.ui.funlab.StarbuksBottomNaviActiviy" />
-        <activity android:name="com.db.demoapp.ui.funlab.StarbuksAppbarCollapActivity" />
-        <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewActivty" />
+        </activity> <!-- 예제 목록 액티비티 -->
+        <activity android:name=".ui.AnimationListActivity" />
+        <activity android:name=".ui.loading.LoadingUIActivityList" />
+        <activity android:name=".ui.pagingux.PagingUXListActivity" />
+        <activity android:name=".ui.microinteraction.MicroInteractionsActivityList" />
+        <activity android:name=".ui.threedmotion.ThreeDMotionActivity" />
+        <activity android:name=".ui.FunLabActivityList" /> <!-- 애니메이션 시연 액티비티 -->
+        <activity android:name=".ui.microitems.SlideDownActivity" />
+        <activity android:name=".ui.pagingitems.PagingAppbarTabLayoutActivity" />
+        <activity android:name=".ui.pagingitems.PagingBottomActivity" />
+        <activity android:name=".ui.funlab.StarbuksBottomNaviActiviy" />
+        <activity android:name=".ui.funlab.StarbuksAppbarCollapActivity" />
+        <activity android:name=".ui.funlab.StarbuksCardViewActivty" /> <!-- 코드 보기 액티비티 웹뷰 -->
         <activity android:name="com.db.demoapp.ui.funlab.StarbuksCardViewPageIndicatorActivity" />
-
-
-        <!-- 코드 보기 액티비티 웹뷰 -->
-        <activity android:name="com.db.demoapp.code.DynamicTabbedCodeViewActivity" />
-
-        <!-- ETC 액티비티 -->
+        <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->
         <activity
             android:name=".ui.etc.EtcActivity"
             android:exported="false" />
         <activity
             android:name=".ui.etc.healthconnect.test.HealthConnectTestActivity"
-            android:exported="false" >
+            android:exported="false">
+
             <!--
                 The app needs to handle this intent and display an appropriate privacy policy
                 explaining how the user's data will be used and handled.
@@ -78,17 +77,16 @@
 
             <!-- Permission handling for Android 14 -->
             <intent-filter>
-                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE"/>
-                <category android:name="android.intent.category.HEALTH_PERMISSIONS"/>
+                <action android:name="android.intent.action.VIEW_PERMISSION_USAGE" />
+
+                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.modal.test.ModalDialogTestActivity"
             android:exported="false" />
         <activity android:name=".ui.modal.test.BottomSheetTestActivity" />
         <activity android:name=".ui.modal.test.SnackbarTestActivity" />
-
         <activity
             android:name=".ui.modal.ModalUIActivity"
             android:exported="false" />
@@ -96,13 +94,12 @@
             android:name=".ui.ModalDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.InfiniteScrollDemoActivity"
+            android:name=".ui.loading.test.InfiniteScrollDemoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SkeletonDemoActivity"
+            android:name=".ui.loading.test.SkeletonDemoActivity"
             android:exported="false" />
-
-
+        <activity android:name=".ui.pagingux.test.GeneralPaging" />
     </application>
 
 </manifest>

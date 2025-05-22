@@ -188,11 +188,24 @@
                 android:elevation="25dp"
                 android:text="🧪 API Showcase"
                 android:textColor="#ffffff"
-                app:layout_constraintEnd_toStartOf="@+id/btnAnimation7"
+                app:layout_constraintEnd_toStartOf="@+id/btnAnimation8"
                 app:layout_constraintStart_toStartOf="@+id/tv_5"
                 app:layout_constraintTop_toBottomOf="@id/tv_6" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnAnimation8"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:background="@drawable/bg_button_right_rounded"
+                android:elevation="25dp"
+                android:text="ETC"
+                android:textColor="#ffffff"
+                app:layout_constraintEnd_toEndOf="@+id/tv_5"
+                app:layout_constraintStart_toEndOf="@+id/btnAnimation6"
+                app:layout_constraintTop_toTopOf="@+id/btnAnimation6"
+                />
+
+            <!--<androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnAnimation7"
                 android:layout_width="0dp"
                 android:layout_height="80dp"
@@ -216,7 +229,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/btnAnimation7"
                 app:layout_constraintStart_toStartOf="@+id/btnAnimation6"
                 app:layout_constraintTop_toBottomOf="@+id/btnAnimation6"
-                />
+                />-->
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

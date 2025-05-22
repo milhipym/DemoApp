@@ -1,5 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="wrap_content"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/modal_bg_dialog_rounded"
     android:padding="24dp">
@@ -8,7 +9,7 @@
         android:id="@+id/tvDialogMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="삭제하시면 더이상 데이터를 확인할 수 없습니다.\n삭제하시겠습니까?"
+        android:text="삭제하시면 더이상 데이터를 확인하실 수 없습니다.\n삭제하시겠습니까?"
         android:textSize="15sp"
         android:textColor="#444"
         android:gravity="center"
@@ -18,21 +19,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="end">
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnCancel"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="취소"
             android:textColor="#888888" />
 
         <Button
             android:id="@+id/btnDelete"
             style="@style/Widget.AppCompat.Button.Borderless"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="삭제"
             android:textColor="#FF3B30"
             android:layout_marginStart="16dp"/>

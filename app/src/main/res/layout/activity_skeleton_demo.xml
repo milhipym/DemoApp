@@ -1,4 +1,5 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/skeletonDemoContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,18 +8,37 @@
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/shimmerLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/item_skeleton"/>
-        <include layout="@layout/item_skeleton"/>
-        <include layout="@layout/item_skeleton"/>
+        android:layout_height="wrap_content"
+        app:shimmer_auto_start="true"
+        app:shimmer_duration="1200"
+        app:shimmer_base_alpha="0.7"
+        app:shimmer_highlight_alpha="1.0"
+        app:shimmer_direction="left_to_right"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        >
+        <!-- 스켈레톤 아이템들 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+            <include layout="@layout/item_skeleton"/>
+        </LinearLayout>
     </com.facebook.shimmer.ShimmerFrameLayout>
+
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="24dp"
-        android:src="@android:drawable/ic_menu_info_details"/>
+        android:contentDescription="소스코드보기"
+        android:src="@android:drawable/ic_menu_info_details"
+        android:layout_gravity="bottom|start"
+        android:layout_margin="24dp"/>
 </FrameLayout>

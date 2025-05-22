@@ -7,6 +7,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import com.db.demoapp.R;
 
 public class ModalDialogTestActivity extends AppCompatActivity {
@@ -18,12 +21,19 @@ public class ModalDialogTestActivity extends AppCompatActivity {
         Button btnTest = findViewById(R.id.btnTestDialog);
         btnTest.setOnClickListener(v -> showCustomDialog());
 
+
         ImageButton fab = findViewById(R.id.fabCode);
         //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "modal_dialog"); // ✅ 핵심 포인트
             startActivity(intent);
+        });
+
+        ViewCompat.setOnApplyWindowInsetsListener(fab, (v, insets) -> {
+            int bottomInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).bottom;
+            v.setTranslationY(-bottomInset);
+            return insets;
         });
     }
 
