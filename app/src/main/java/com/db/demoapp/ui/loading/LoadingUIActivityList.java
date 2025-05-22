@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
-import com.db.demoapp.ui.loading.test.InfiniteScrollDemoActivity;
 import com.db.demoapp.ui.loading.test.SkeletonDemoActivity;
 
 import java.util.Arrays;

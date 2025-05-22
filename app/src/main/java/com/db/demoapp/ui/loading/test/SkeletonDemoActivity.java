@@ -35,7 +35,6 @@ public class SkeletonDemoActivity extends AppCompatActivity {
         new Handler().postDelayed(this::showRealData, 5000);
 
         ImageButton fab = findViewById(R.id.fab);
-        //fab.setOnClickListener(v -> startActivity(new Intent(this, com.db.demoapp.code.SlideDownCodeActivity.class)));
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
             intent.putExtra("feature", "skeleton"); // ✅ 핵심 포인트
@@ -56,7 +55,7 @@ public class SkeletonDemoActivity extends AppCompatActivity {
                     dataLayout.setVisibility(View.VISIBLE);
 
                     // 예시: 3개 피드 데이터
-                    for (int i = 0; i < 5; i++) {
+                    for (int i = 0; i < 3; i++) {
                         View postView = getLayoutInflater().inflate(R.layout.item_facebook_post, dataLayout, false);
 
                         ImageView imgProfile = postView.findViewById(R.id.imgProfile);
