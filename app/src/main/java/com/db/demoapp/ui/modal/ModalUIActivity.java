@@ -13,6 +13,7 @@ import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.modal.test.BottomSheetExpandedTestActivity;
 import com.db.demoapp.ui.modal.test.BottomSheetTestActivity;
 import com.db.demoapp.ui.modal.test.ModalDialogTestActivity;
+import com.db.demoapp.ui.modal.test.PersistentBottomSheetActivity;
 import com.db.demoapp.ui.modal.test.SnackbarTestActivity;
 import java.util.Arrays;
 import java.util.List;
@@ -50,6 +51,11 @@ public class ModalUIActivity extends AppCompatActivity {
                         R.drawable.ic_micro_interaction,
                         "스낵바",
                         "Action에 대한 피드백/별도 액션 제공"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Persistant BottomSheet",
+                        "메인페이지에 하단에 상주하며 추가 정보/입력을 제공하는 팝업"
                 )
         );
 
@@ -70,6 +76,9 @@ public class ModalUIActivity extends AppCompatActivity {
                     break;
                 case 3:
                     intent = new Intent(this, SnackbarTestActivity.class);
+                    break;
+                case 4:
+                    intent = new Intent(this, PersistentBottomSheetActivity.class);
                     break;
             }
             if (intent != null) startActivity(intent);

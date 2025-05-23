@@ -7,7 +7,7 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnTestDialog"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:text="테스트"
         android:textAllCaps="false"
         android:textSize="16sp"

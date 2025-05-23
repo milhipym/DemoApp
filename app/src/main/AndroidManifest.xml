@@ -67,6 +67,8 @@
         <activity android:name=".ui.funlab.StarbuksRecyclerViewActivity" />
         <activity android:name=".ui.funlab.StarbuksBottomSheetActivity" />
 
+        <activity android:name=".ui.modal.test.PersistentBottomSheetActivity" />
+
 
 
         <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->
@@ -99,6 +101,7 @@
         <activity
             android:name=".ui.ModalDemoActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.loading.test.InfiniteScrollDemoActivity"
             android:exported="false" />
