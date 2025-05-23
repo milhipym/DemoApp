@@ -54,7 +54,10 @@
         <activity android:name=".ui.microinteraction.MicroInteractionsActivityList" />
         <activity android:name=".ui.threedmotion.ThreeDMotionActivity" />
         <activity android:name=".ui.FunLabActivityList" /> <!-- 애니메이션 시연 액티비티 -->
-        <activity android:name=".ui.microitems.SlideDownActivity" />
+        <activity android:name=".ui.microinteraction.SlideDownActivity" />
+        <activity android:name=".ui.microinteraction.MicroRocketRefreshActivity" />
+        <activity android:name=".ui.microinteraction.MicroSpringActivity" />
+
         <activity android:name=".ui.pagingitems.PagingAppbarTabLayoutActivity" />
         <activity android:name=".ui.pagingitems.PagingBottomActivity" />
         <activity android:name=".ui.funlab.StarbuksBottomNaviActiviy" />
@@ -63,6 +66,7 @@
         <activity android:name=".ui.funlab.StarbuksCardViewPageIndicatorActivity" />
         <activity android:name=".ui.funlab.StarbuksRecyclerViewActivity" />
         <activity android:name=".ui.funlab.StarbuksBottomSheetActivity" />
+
 
 
         <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->

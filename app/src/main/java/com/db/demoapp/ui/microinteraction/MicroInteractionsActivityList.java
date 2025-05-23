@@ -2,13 +2,6 @@ package com.db.demoapp.ui.microinteraction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,11 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
-import com.db.demoapp.ui.apishowcase.ApiShowCaseActivity;
-import com.db.demoapp.ui.loading.test.InfiniteScrollDemoActivity;
-import com.db.demoapp.ui.loading.test.SkeletonDemoActivity;
 import com.db.demoapp.ui.microinteraction.test.ApiShowCaseExample;
-import com.db.demoapp.ui.microitems.SlideDownActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -49,7 +38,18 @@ public class MicroInteractionsActivityList extends AppCompatActivity {
                         R.drawable.ic_micro_interaction,
                         "SHOW CASE",
                         "사용자에게 어떻게 사용하는지 알려주기!"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Rocket Refresh",
+                        "MotionEvent를 통한 애니메이션"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Motion Spring",
+                        "MotionEvent와 SpringAnimation을 통한 애니메이션"
                 )
+
         );
 
         CommonItemAdapter adapter = new CommonItemAdapter(this, items);
@@ -63,6 +63,12 @@ public class MicroInteractionsActivityList extends AppCompatActivity {
                     break;
                 case 1:
                     intent = new Intent(this, ApiShowCaseExample.class);
+                    break;
+                case 2:
+                    intent = new Intent(this, MicroRocketRefreshActivity.class);
+                    break;
+                case 3:
+                    intent = new Intent(this, MicroSpringActivity.class);
                     break;
             }
             if (intent != null) startActivity(intent);

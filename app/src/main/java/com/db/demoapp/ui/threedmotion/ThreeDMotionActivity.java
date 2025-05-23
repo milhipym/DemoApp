@@ -3,14 +3,7 @@ package com.db.demoapp.ui.threedmotion;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -22,12 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
-import com.db.demoapp.ui.loading.test.InfiniteScrollDemoActivity;
-import com.db.demoapp.ui.loading.test.SkeletonDemoActivity;
-import com.db.demoapp.ui.microitems.SlideDownActivity;
-import com.db.demoapp.ui.pagingitems.PagingAppbarTabLayoutActivity;
-import com.db.demoapp.ui.pagingitems.PagingBottomActivity;
-import com.db.demoapp.ui.pagingux.test.GeneralPaging;
 import com.db.demoapp.ui.threedmotion.test.GeneralThreeDMotion;
 
 import java.util.Arrays;

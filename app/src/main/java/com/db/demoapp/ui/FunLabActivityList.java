@@ -65,12 +65,12 @@ public class FunLabActivityList extends AppCompatActivity {
                         R.drawable.ic_micro_interaction,
                         "STEP5 스타벅스 회사 배너",
                         "RecyclerView 소수의 뷰만 생성하여 메모리 절약"
-                )/*,
+                ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
                         "STEP6 스타벅스 카드/간편결제",
                         "BottomSheet 효율적인 공간 활용 및 맥락 유지를 위한 모달 팝업"
-                )*/
+                )
         );
 
         CommonItemAdapter adapter = new CommonItemAdapter(this, items);
@@ -94,9 +94,9 @@ public class FunLabActivityList extends AppCompatActivity {
                 case 4:
                     intent = new Intent(this, StarbuksRecyclerViewActivity.class);
                     break;
-                /*case 5:
+                case 5:
                     intent = new Intent(this, StarbuksBottomSheetActivity.class);
-                    break;*/
+                    break;
             }
             if (intent != null) startActivity(intent);
         });

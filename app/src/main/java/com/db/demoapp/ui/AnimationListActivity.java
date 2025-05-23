@@ -2,13 +2,6 @@ package com.db.demoapp.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +12,6 @@ import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.loading.test.InfiniteScrollDemoActivity;
 import com.db.demoapp.ui.loading.test.SkeletonDemoActivity;
-import com.db.demoapp.ui.microitems.SlideDownActivity;
 
 import java.util.Arrays;
 import java.util.List;

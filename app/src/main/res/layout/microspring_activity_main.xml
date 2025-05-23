@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/animatedCard"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="0dp"
+        android:backgroundTint="#4A90E2"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/animatedCard"
+        android:fillViewport="true"
+        android:layout_marginTop="220dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <View android:layout_width="match_parent" android:layout_height="150dp" android:background="#E0F7FA" />
+            <View android:layout_width="match_parent" android:layout_height="150dp" android:background="#B2EBF2" />
+            <View android:layout_width="match_parent" android:layout_height="150dp" android:background="#80DEEA" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

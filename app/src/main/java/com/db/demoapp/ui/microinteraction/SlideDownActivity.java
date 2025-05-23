@@ -1,4 +1,4 @@
-package com.db.demoapp.ui.microitems;
+package com.db.demoapp.ui.microinteraction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -35,7 +36,7 @@ public class SlideDownActivity extends AppCompatActivity {
 
         fab.setOnClickListener(v -> {
             Intent intent = new Intent(this, com.db.demoapp.code.DynamicTabbedCodeViewActivity.class);
-            intent.putExtra("feature", "slide_down"); //
+            intent.putExtra("feature", "slide_down");
             startActivity(intent);
         });
 
