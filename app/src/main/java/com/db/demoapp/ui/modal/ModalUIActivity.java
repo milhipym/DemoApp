@@ -34,28 +34,28 @@ public class ModalUIActivity extends AppCompatActivity {
         List<CommonItemAdapter.ItemData> items = Arrays.asList(
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "모달 팝업",
-                        "중요한 정보전달/결정 필요"
+                        "Modal PopUp",
+                        "중요 결정, 알림, 사용자 입력에 사용 (예: 삭제 확인)"
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "바텀 시트",
-                        "기존 화면과 관련된 내용/메뉴 제공"
+                        "Modal BottomSheet",
+                        "연관된 작업, 옵션 선택 등 하단에서 등장 \n(예: 파일 첨부)"
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "확장 바텀 시트",
-                        "기본 바텀 시트 확장형 제공"
+                        "Modal BottomSheet Extend",
+                        "전체 화면에 가깝게 확장되는 하단 시트 \n(예: 상세 정보 보기)"
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
-                        "스낵바",
-                        "Action에 대한 피드백/별도 액션 제공"
+                        "Snackbar ",
+                        "간단한 메시지/액션을 하단에 표시 \n(예: 저장됨, 실행 취소 등의 안내)"
                 ),
                 new CommonItemAdapter.ItemData(
                         R.drawable.ic_micro_interaction,
                         "Persistant BottomSheet",
-                        "메인페이지에 하단에 상주하며 추가 정보/입력을 제공하는 팝업"
+                        "항상 하단에 위치, 추가 정보/입력 제공 \n(예: 음악 플레이어)"
                 )
         );
 

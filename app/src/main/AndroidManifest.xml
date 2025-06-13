@@ -68,6 +68,7 @@
         <activity android:name=".ui.funlab.StarbuksBottomSheetActivity" />
 
         <activity android:name=".ui.modal.test.PersistentBottomSheetActivity" />
+        <activity android:name=".ui.threedmotion.test.ThreeJsWebViewActivity" />
 
 
 

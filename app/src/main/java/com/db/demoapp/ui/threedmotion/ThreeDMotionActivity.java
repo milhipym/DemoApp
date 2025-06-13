@@ -16,6 +16,7 @@ import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.threedmotion.test.GeneralThreeDMotion;
+import com.db.demoapp.ui.threedmotion.test.ThreeJsWebViewActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -58,6 +59,11 @@ public class ThreeDMotionActivity extends AppCompatActivity {
                         R.drawable.ic_micro_interaction,
                         "기본 3D Motion",
                         "사실적인 텍스쳐, 생동감 있는 형태로 몰입감을 더하는 방식으로 활용"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "기본 3D Motion",
+                        "사실적인 텍스쳐, 생동감 있는 형태로 몰입감을 더하는 방식으로 활용"
                 )
         );
 
@@ -69,6 +75,9 @@ public class ThreeDMotionActivity extends AppCompatActivity {
             switch (position) {
                 case 0:
                     intent = new Intent(this, GeneralThreeDMotion.class);
+                    break;
+                case 1:
+                    intent = new Intent(this, ThreeJsWebViewActivity.class);
                     break;
             }
             if (intent != null) startActivity(intent);
