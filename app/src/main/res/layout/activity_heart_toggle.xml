@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/motionLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/scene_heart_toggle"
+    app:currentState="@+id/unliked"
+    android:background="#F8FAFC">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/heart"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        app:cardCornerRadius="48dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#FFFFFF"
+        app:strokeColor="#E95950"
+        app:strokeWidth="2dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/ivHeartOutline"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_heart_outline"
+                android:contentDescription="좋아요 비활성"
+                android:layout_gravity="center"
+                app:tint="#E95950" />
+
+            <ImageView
+                android:id="@+id/ivHeartFilled"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/ic_heart_filled"
+                android:contentDescription="좋아요 활성"
+                android:layout_gravity="center"
+                app:tint="#E95950" />
+        </FrameLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.motion.widget.MotionLayout>

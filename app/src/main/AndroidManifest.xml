@@ -25,6 +25,12 @@
         android:theme="@style/Theme.DemoApp"
         tools:targetApi="33">
         <activity
+            android:name=".ui.microinteraction.test.StarRateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.microinteraction.test.HeartMotionActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.apishowcase.test.RetrofitTestActivity"
             android:exported="false" />
         <activity

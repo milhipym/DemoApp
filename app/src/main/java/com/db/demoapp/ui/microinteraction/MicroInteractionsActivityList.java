@@ -11,6 +11,8 @@ import com.db.demoapp.R;
 import com.db.demoapp.comm.item.CommonItemAdapter;
 import com.db.demoapp.comm.item.VerticalSpaceItemDecoration;
 import com.db.demoapp.ui.microinteraction.test.ApiShowCaseExample;
+import com.db.demoapp.ui.microinteraction.test.HeartMotionActivity;
+import com.db.demoapp.ui.microinteraction.test.StarRateActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +50,17 @@ public class MicroInteractionsActivityList extends AppCompatActivity {
                         R.drawable.ic_micro_interaction,
                         "Motion Spring",
                         "MotionEvent와 SpringAnimation을 통한 애니메이션"
-                )
+                )/*,
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Heart Motion",
+                        "좋아요!"
+                ),
+                new CommonItemAdapter.ItemData(
+                        R.drawable.ic_micro_interaction,
+                        "Star Rating",
+                        "별점 기능"
+                )*/
 
         );
 
@@ -70,6 +82,12 @@ public class MicroInteractionsActivityList extends AppCompatActivity {
                 case 3:
                     intent = new Intent(this, MicroSpringActivity.class);
                     break;
+                /*case 4:
+                    intent = new Intent(this, HeartMotionActivity.class);
+                    break;
+                case 5:
+                    intent = new Intent(this, StarRateActivity.class);
+                    break;*/
             }
             if (intent != null) startActivity(intent);
         });
