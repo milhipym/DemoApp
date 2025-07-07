@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FAFC"
+    android:fitsSystemWindows="true">
+
+    <!-- 상단 Lottie 애니메이션 -->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="36dp"
+        app:lottie_rawRes="@raw/data_base"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- 카드뷰 형태의 데이터 표시 영역 -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardTodaySteps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/animationView"
+        app:layout_constraintBottom_toTopOf="@id/buttonGroup"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="28dp">
+
+            <!-- 카드뷰 제목 -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="앱 내 저장소"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="#222" />
+
+            <!-- 데이터(스크롤 가능) 영역 -->
+            <ScrollView
+                android:id="@+id/scrollViewStorageData"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="16dp"
+                android:fillViewport="true">
+
+                <TextView
+                    android:id="@+id/textViewStorageData"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="데이터가 존재하지 않습니다."
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    android:textColor="#1DB7B0"
+                    android:padding="8dp"
+                    android:lineSpacingExtra="4dp"
+                    android:scrollbars="vertical"
+                    app:autoSizeTextType="uniform"
+                    app:autoSizeMinTextSize="14dp"
+                    app:autoSizeMaxTextSize="16dp"
+                    app:autoSizeStepGranularity="2sp"/>
+            </ScrollView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- 하단 버튼 그룹 (가로 2개) -->
+    <LinearLayout
+        android:id="@+id/buttonGroup"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/fabCode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="저장하기"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="28dp"
+            android:backgroundTint="#1DB7B0"
+            android:textColor="@android:color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="@android:color/white"
+            android:layout_marginEnd="8dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/delete"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="삭제하기"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="28dp"
+            android:backgroundTint="#F44336"
+            android:textColor="@android:color/white"
+            app:iconGravity="textStart"
+            app:iconPadding="8dp"
+            app:iconTint="@android:color/white"/>
+    </LinearLayout>
+
+    <!-- FAB: 버튼 그룹 아래, 하단에 고정 -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="소스코드보기"
+        android:src="@android:drawable/ic_menu_info_details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="24dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

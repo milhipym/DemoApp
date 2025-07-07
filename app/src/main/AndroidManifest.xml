@@ -7,8 +7,6 @@
         <package android:name="com.google.android.apps.healthdata" />
     </queries>
 
-
-
     <uses-permission android:name="android.health.connect.action.HEALTH_CONNECT_SETTINGS" />
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_HEALTH_DATA_HISTORY" />
@@ -24,6 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DemoApp"
         tools:targetApi="33">
+        <activity
+            android:name=".ui.etc.preparedstatement.test.PrepareStatementTestActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name=".ui.microinteraction.test.StarRateActivity"
             android:exported="false" />
@@ -63,7 +65,6 @@
         <activity android:name=".ui.microinteraction.SlideDownActivity" />
         <activity android:name=".ui.microinteraction.MicroRocketRefreshActivity" />
         <activity android:name=".ui.microinteraction.MicroSpringActivity" />
-
         <activity android:name=".ui.pagingitems.PagingAppbarTabLayoutActivity" />
         <activity android:name=".ui.pagingitems.PagingBottomActivity" />
         <activity android:name=".ui.funlab.StarbuksBottomNaviActiviy" />
@@ -72,12 +73,8 @@
         <activity android:name=".ui.funlab.StarbuksCardViewPageIndicatorActivity" />
         <activity android:name=".ui.funlab.StarbuksRecyclerViewActivity" />
         <activity android:name=".ui.funlab.StarbuksBottomSheetActivity" />
-
         <activity android:name=".ui.modal.test.PersistentBottomSheetActivity" />
         <activity android:name=".ui.threedmotion.test.ThreeJsWebViewActivity" />
-
-
-
         <activity android:name=".code.DynamicTabbedCodeViewActivity" /> <!-- ETC 액티비티 -->
         <activity
             android:name=".ui.etc.EtcActivity"
@@ -85,7 +82,6 @@
         <activity
             android:name=".ui.etc.healthconnect.test.HealthConnectTestActivity"
             android:exported="false">
-
             <intent-filter>
                 <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
             </intent-filter>
@@ -108,7 +104,6 @@
         <activity
             android:name=".ui.ModalDemoActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.loading.test.InfiniteScrollDemoActivity"
             android:exported="false" />
